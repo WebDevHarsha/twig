@@ -1,1 +1,90 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* TWIG palette: warm neutral background, pine accent */
+  --color-pine-50: #eef4ef;
+  --color-pine-100: #d8e7db;
+  --color-pine-200: #b2cfc0;
+  --color-pine-300: #82ad97;
+  --color-pine-400: #558a72;
+  --color-pine-500: #2f6b53;
+  --color-pine-600: #1e523d;
+  --color-pine-700: #17402f;
+  --color-pine-800: #102a20;
+  --color-pine-900: #0a1c15;
+
+  --color-sand-50: #faf9f7;
+  --color-sand-100: #f3f1ed;
+  --color-sand-200: #e8e4dc;
+  --color-sand-300: #d8d2c6;
+  --color-sand-400: #9d968a;
+  --color-sand-500: #6f695f;
+  --color-sand-600: #403c36;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-sand-50);
+  color: var(--color-sand-600);
+  font-feature-settings: "ss01" on, "cv05" on;
+}
+
+::selection {
+  background: var(--color-pine-200);
+}
+
+/* Small helpers reused across pages */
+.container-x {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.hairline {
+  border-color: var(--color-sand-200);
+}
+
+@keyframes twig-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: twig-fade-up 0.35s ease-out both;
+}
+
+.typing-dot {
+  animation: typing-bounce 1.2s infinite ease-in-out;
+}
+.typing-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.typing-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typing-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
